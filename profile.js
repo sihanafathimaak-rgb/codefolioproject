@@ -1,15 +1,10 @@
-
 import {
   auth,
   db,
-  storage,
   doc,
   getDoc,
   setDoc,
   serverTimestamp,
-  ref,
-  uploadBytes,
-  getDownloadURL,
   updateProfile,
   onAuthStateChanged
 } from "./firebase.js";
@@ -82,10 +77,13 @@ function displayPhoto(imageURL) {
 // ==========================================
 // 4. PROFILE PHOTO PREVIEW
 // ==========================================
+// Photo preview works locally in the browser.
+// Permanent photo upload is temporarily disabled
+// because Firebase Storage requires a billing plan.
 
 if (photoInput) {
   photoInput.addEventListener("change", () => {
-    const file = photoInput.files[0];
+    const file = photoInput.files?.[0];
 
     if (!file) return;
 
@@ -104,7 +102,11 @@ if (photoInput) {
     const imageURL = URL.createObjectURL(file);
 
     displayPhoto(imageURL);
-    showMessage("Photo preview updated.", "success");
+
+    showMessage(
+      "Photo preview updated. Permanent photo saving is temporarily unavailable.",
+      "success"
+    );
   });
 }
 
@@ -205,9 +207,6 @@ repeatingSections.forEach(section => {
 // 8. OPTIONAL PROJECT AND CERTIFICATE FIELDS
 // ==========================================
 
-// Freshers may not have projects or certificates.
-// So these fields should not block profile saving.
-
 document.querySelectorAll(
   ".project-item input, .project-item textarea, .certificate-item input"
 ).forEach(field => {
@@ -254,7 +253,6 @@ function getRepeatedData(containerId, selector) {
   if (!container) return [];
 
   const items = container.querySelectorAll(selector);
-
   const result = [];
 
   items.forEach(item => {
@@ -266,7 +264,6 @@ function getRepeatedData(containerId, selector) {
       entry[key] = field.value.trim();
     });
 
-    // Ignore completely empty rows
     const hasData = Object.values(entry).some(value => value !== "");
 
     if (hasData) {
@@ -291,7 +288,6 @@ function restoreRepeatedData(containerId, selector, savedData) {
 
   if (!firstItem) return;
 
-  // Start with an empty container
   container.innerHTML = "";
 
   if (savedData.length === 0) {
@@ -308,9 +304,7 @@ function restoreRepeatedData(containerId, selector, savedData) {
     clearFields(newItem);
 
     Object.entries(savedItem).forEach(([key, value]) => {
-      const field = newItem.querySelector(
-        `[name="${key}[]"]`
-      );
+      const field = newItem.querySelector(`[name="${key}[]"]`);
 
       if (field) {
         field.value = value ?? "";
@@ -336,7 +330,6 @@ async function loadProfile(user) {
 
     const data = snapshot.data();
 
-    // Personal information
     const personalFields = [
       "phone",
       "location",
@@ -371,7 +364,7 @@ async function loadProfile(user) {
       toggleExperienceSection();
     }
 
-    // Profile photo
+    // Previously saved profile photo
     existingPhotoURL = data.photoURL || user.photoURL || "";
 
     if (existingPhotoURL) {
@@ -415,37 +408,17 @@ async function loadProfile(user) {
 
   } catch (error) {
     console.error("Profile loading error:", error);
-    showMessage("Unable to load your profile.", "error");
+
+    showMessage(
+      error.message || "Unable to load your profile.",
+      "error"
+    );
   }
 }
 
 
 // ==========================================
-// 14. UPLOAD PROFILE PHOTO TO STORAGE
-// ==========================================
-
-async function uploadProfilePhoto(user) {
-  const file = photoInput?.files?.[0];
-
-  if (!file) {
-    return existingPhotoURL;
-  }
-
-  const photoReference = ref(
-    storage,
-    `users/${user.uid}/profile-photo`
-  );
-
-  await uploadBytes(photoReference, file);
-
-  const downloadURL = await getDownloadURL(photoReference);
-
-  return downloadURL;
-}
-
-
-// ==========================================
-// 15. SAVE PROFILE TO FIRESTORE
+// 14. SAVE PROFILE TO FIRESTORE
 // ==========================================
 
 if (profileForm) {
@@ -458,15 +431,16 @@ if (profileForm) {
     }
 
     try {
-      saveProfileButton.disabled = true;
-      saveProfileButton.textContent = "Saving...";
+      if (saveProfileButton) {
+        saveProfileButton.disabled = true;
+        saveProfileButton.textContent = "Saving...";
+      }
 
       showMessage("Saving your profile...", "success");
 
-      // Upload photo
-      const photoURL = await uploadProfilePhoto(currentUser);
+      // Collect all profile details.
+      // Firebase Storage upload is not used.
 
-      // Collect all profile details
       const profileData = {
         fullName: getFieldValue("fullName"),
 
@@ -475,7 +449,8 @@ if (profileForm) {
         phone: getFieldValue("phone"),
         location: getFieldValue("location"),
 
-        photoURL: photoURL,
+        // Keep an already-saved photo URL.
+        photoURL: existingPhotoURL || "",
 
         github: getFieldValue("github"),
         linkedin: getFieldValue("linkedin"),
@@ -515,7 +490,7 @@ if (profileForm) {
         updatedAt: serverTimestamp()
       };
 
-      // Save to Firestore
+      // Save profile to Firestore
       await setDoc(
         doc(db, "users", currentUser.uid),
         profileData,
@@ -523,17 +498,11 @@ if (profileForm) {
       );
 
       // Update Firebase Authentication display name
-      const authUpdates = {
-        displayName: profileData.fullName
-      };
-
-      if (photoURL) {
-        authUpdates.photoURL = photoURL;
+      if (profileData.fullName) {
+        await updateProfile(currentUser, {
+          displayName: profileData.fullName
+        });
       }
-
-      await updateProfile(currentUser, authUpdates);
-
-      existingPhotoURL = photoURL;
 
       showMessage(
         "Your profile has been saved successfully!",
@@ -549,15 +518,17 @@ if (profileForm) {
       );
 
     } finally {
-      saveProfileButton.disabled = false;
-      saveProfileButton.textContent = "Save Profile & Continue →";
+      if (saveProfileButton) {
+        saveProfileButton.disabled = false;
+        saveProfileButton.textContent = "Save Profile & Continue →";
+      }
     }
   });
 }
 
 
 // ==========================================
-// 16. CHECK AUTHENTICATION STATUS
+// 15. CHECK AUTHENTICATION STATUS
 // ==========================================
 
 onAuthStateChanged(auth, async user => {

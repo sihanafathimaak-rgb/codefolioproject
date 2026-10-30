@@ -98,19 +98,27 @@ body {
   color: #65d9ff;
 }
 
-/* Hero Section */
+/* =================================
+   CENTERED HERO SECTION
+================================= */
 
 .hero-section {
-  min-height: 570px;
+  min-height: 650px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 50px;
+  text-align: center;
+  gap: 30px;
   padding: 85px 0;
 }
 
 .hero-content {
-  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .hero-greeting,
@@ -123,10 +131,12 @@ body {
 }
 
 .hero-content h1 {
+  width: 100%;
   font-size: clamp(40px, 7vw, 68px);
   line-height: 1.15;
   font-weight: 800;
   overflow-wrap: anywhere;
+  text-align: center;
 }
 
 .hero-content h2 {
@@ -134,15 +144,19 @@ body {
   font-size: clamp(19px, 3vw, 26px);
   font-weight: 500;
   margin-top: 15px;
+  text-align: center;
 }
 
 .hero-location {
   color: #929bb5;
   margin-top: 12px;
+  text-align: center;
 }
 
 .hero-buttons {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 15px;
   margin-top: 30px;
@@ -179,6 +193,8 @@ body {
   color: #65d9ff;
 }
 
+/* Profile Photo */
+
 .hero-photo-wrapper {
   width: 290px;
   height: 290px;
@@ -188,6 +204,7 @@ body {
   border: 4px solid rgba(101, 217, 255, 0.6);
   background: #151b31;
   box-shadow: 0 0 50px rgba(101, 217, 255, 0.12);
+  margin: 0 auto;
 }
 
 .hero-photo-wrapper img {
@@ -379,9 +396,8 @@ body {
 
   .hero-section {
     min-height: auto;
-    flex-direction: column-reverse;
-    text-align: center;
-    padding: 60px 0;
+    padding: 65px 0;
+    gap: 25px;
   }
 
   .hero-photo-wrapper {

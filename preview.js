@@ -1,4 +1,3 @@
-
 import {
   auth,
   db,
@@ -726,4 +725,3 @@ onAuthStateChanged(auth, user => {
 
   loadPortfolio(user);
 });
-
