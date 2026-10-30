@@ -10,9 +10,6 @@ import {
 } from "./firebase.js";
 
 
-// ==========================================
-// 1. HTML ELEMENTS
-// ==========================================
 
 const profileForm = document.getElementById("profileForm");
 
@@ -33,9 +30,6 @@ let currentUser = null;
 let existingPhotoURL = "";
 
 
-// ==========================================
-// 2. MESSAGE FUNCTION
-// ==========================================
 
 function showMessage(message, type = "success") {
   if (!profileMessage) return;
@@ -45,9 +39,6 @@ function showMessage(message, type = "success") {
 }
 
 
-// ==========================================
-// 3. PROFILE PHOTO DISPLAY
-// ==========================================
 
 function displayPhoto(imageURL) {
   if (!imageURL || !photoPreview) return;
@@ -74,12 +65,6 @@ function displayPhoto(imageURL) {
 }
 
 
-// ==========================================
-// 4. PROFILE PHOTO PREVIEW
-// ==========================================
-// Photo preview works locally in the browser.
-// Permanent photo upload is temporarily disabled
-// because Firebase Storage requires a billing plan.
 
 if (photoInput) {
   photoInput.addEventListener("change", () => {
@@ -111,9 +96,6 @@ if (photoInput) {
 }
 
 
-// ==========================================
-// 5. REPEATING SECTION CONFIGURATION
-// ==========================================
 
 const repeatingSections = [
   {
@@ -144,9 +126,6 @@ const repeatingSections = [
 ];
 
 
-// ==========================================
-// 6. CLEAR CLONED FIELDS
-// ==========================================
 
 function clearFields(item) {
   item.querySelectorAll("input, textarea, select").forEach(field => {
@@ -161,9 +140,6 @@ function clearFields(item) {
 }
 
 
-// ==========================================
-// 7. ADD AND REMOVE REPEATING FIELDS
-// ==========================================
 
 repeatingSections.forEach(section => {
   const container = document.getElementById(section.containerId);
@@ -203,9 +179,6 @@ repeatingSections.forEach(section => {
 });
 
 
-// ==========================================
-// 8. OPTIONAL PROJECT AND CERTIFICATE FIELDS
-// ==========================================
 
 document.querySelectorAll(
   ".project-item input, .project-item textarea, .certificate-item input"
@@ -214,9 +187,6 @@ document.querySelectorAll(
 });
 
 
-// ==========================================
-// 9. FRESHER / EXPERIENCED TOGGLE
-// ==========================================
 
 function toggleExperienceSection() {
   if (!careerStatus || !experienceSection) return;
@@ -232,9 +202,6 @@ if (careerStatus) {
 }
 
 
-// ==========================================
-// 10. GET BASIC FORM VALUES
-// ==========================================
 
 function getFieldValue(id) {
   const element = document.getElementById(id);
@@ -243,9 +210,6 @@ function getFieldValue(id) {
 }
 
 
-// ==========================================
-// 11. GET REPEATING SECTION DATA
-// ==========================================
 
 function getRepeatedData(containerId, selector) {
   const container = document.getElementById(containerId);
@@ -275,9 +239,6 @@ function getRepeatedData(containerId, selector) {
 }
 
 
-// ==========================================
-// 12. RESTORE REPEATING SECTION DATA
-// ==========================================
 
 function restoreRepeatedData(containerId, selector, savedData) {
   const container = document.getElementById(containerId);
@@ -316,9 +277,6 @@ function restoreRepeatedData(containerId, selector, savedData) {
 }
 
 
-// ==========================================
-// 13. LOAD PROFILE FROM FIRESTORE
-// ==========================================
 
 async function loadProfile(user) {
   try {
@@ -349,7 +307,6 @@ async function loadProfile(user) {
       }
     });
 
-    // Name and email
     if (fullNameInput) {
       fullNameInput.value = data.fullName || user.displayName || "";
     }
@@ -358,48 +315,41 @@ async function loadProfile(user) {
       emailInput.value = user.email || "";
     }
 
-    // Career status
     if (careerStatus) {
       careerStatus.value = data.careerStatus || "";
       toggleExperienceSection();
     }
 
-    // Previously saved profile photo
     existingPhotoURL = data.photoURL || user.photoURL || "";
 
     if (existingPhotoURL) {
       displayPhoto(existingPhotoURL);
     }
 
-    // Education
     restoreRepeatedData(
       "educationContainer",
       ".education-item",
       data.education || []
     );
 
-    // Skills
     restoreRepeatedData(
       "skillsContainer",
       ".skill-item",
       data.skills || []
     );
 
-    // Projects
     restoreRepeatedData(
       "projectsContainer",
       ".project-item",
       data.projects || []
     );
 
-    // Certificates
     restoreRepeatedData(
       "certificatesContainer",
       ".certificate-item",
       data.certificates || []
     );
 
-    // Experience
     restoreRepeatedData(
       "experienceContainer",
       ".experience-item",
@@ -417,9 +367,6 @@ async function loadProfile(user) {
 }
 
 
-// ==========================================
-// 14. SAVE PROFILE TO FIRESTORE
-// ==========================================
 
 if (profileForm) {
   profileForm.addEventListener("submit", async event => {
@@ -438,8 +385,6 @@ if (profileForm) {
 
       showMessage("Saving your profile...", "success");
 
-      // Collect all profile details.
-      // Firebase Storage upload is not used.
 
       const profileData = {
         fullName: getFieldValue("fullName"),
@@ -449,7 +394,6 @@ if (profileForm) {
         phone: getFieldValue("phone"),
         location: getFieldValue("location"),
 
-        // Keep an already-saved photo URL.
         photoURL: existingPhotoURL || "",
 
         github: getFieldValue("github"),
@@ -490,14 +434,12 @@ if (profileForm) {
         updatedAt: serverTimestamp()
       };
 
-      // Save profile to Firestore
       await setDoc(
         doc(db, "users", currentUser.uid),
         profileData,
         { merge: true }
       );
 
-      // Update Firebase Authentication display name
       if (profileData.fullName) {
         await updateProfile(currentUser, {
           displayName: profileData.fullName
@@ -527,9 +469,6 @@ if (profileForm) {
 }
 
 
-// ==========================================
-// 15. CHECK AUTHENTICATION STATUS
-// ==========================================
 
 onAuthStateChanged(auth, async user => {
   if (!user) {
@@ -539,7 +478,6 @@ onAuthStateChanged(auth, async user => {
 
   currentUser = user;
 
-  // Automatically load login details
   if (fullNameInput) {
     fullNameInput.value = user.displayName || "";
   }
@@ -548,13 +486,11 @@ onAuthStateChanged(auth, async user => {
     emailInput.value = user.email || "";
   }
 
-  // Existing Firebase profile picture
   existingPhotoURL = user.photoURL || "";
 
   if (existingPhotoURL) {
     displayPhoto(existingPhotoURL);
   }
 
-  // Load previously saved profile
   await loadProfile(user);
 });

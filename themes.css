@@ -1,8 +1,3 @@
-
-/* =====================================
-   1. GLOBAL STYLES
-===================================== */
-
 * {
   margin: 0;
   padding: 0;
@@ -25,11 +20,6 @@ body {
 
   overflow-x: hidden;
 }
-
-
-/* =====================================
-   2. NAVBAR
-===================================== */
 
 .navbar {
   width: 100%;
@@ -101,9 +91,7 @@ body {
 }
 
 
-/* =====================================
-   3. MAIN CONTAINER
-===================================== */
+
 
 .themes-container {
   width: 86%;
@@ -113,9 +101,7 @@ body {
 }
 
 
-/* =====================================
-   4. PAGE HEADING
-===================================== */
+
 
 .themes-heading {
   text-align: center;
@@ -157,9 +143,7 @@ body {
 }
 
 
-/* =====================================
-   5. THEME FILTERS
-===================================== */
+
 
 .theme-filters {
   display: flex;
@@ -195,9 +179,7 @@ body {
 }
 
 
-/* =====================================
-   6. THEMES GRID
-===================================== */
+
 
 .themes-grid {
   display: grid;
@@ -208,9 +190,7 @@ body {
 }
 
 
-/* =====================================
-   7. THEME CARD
-===================================== */
+
 
 .theme-card {
   overflow: hidden;
@@ -238,9 +218,7 @@ body {
 }
 
 
-/* =====================================
-   8. THEME PREVIEW
-===================================== */
+
 
 .theme-preview {
   min-height: 270px;
@@ -254,7 +232,7 @@ body {
 }
 
 
-/* Mini Navbar */
+
 
 .mini-navbar {
   font-size: 11px;
@@ -264,7 +242,7 @@ body {
 }
 
 
-/* Mini Content */
+
 
 .mini-content {
   margin: auto 0;
@@ -307,12 +285,10 @@ body {
 }
 
 
-/* =====================================
-   9. INDIVIDUAL THEME DESIGNS
-===================================== */
 
 
-/* Theme 01 - Pure Minimal */
+
+
 
 .preview-minimal {
   background: #f7f7f4;
@@ -326,7 +302,7 @@ body {
 }
 
 
-/* Theme 02 - Midnight Pro */
+
 
 .preview-dark {
   background:
@@ -345,7 +321,7 @@ body {
 }
 
 
-/* Theme 03 - Creative Flow */
+
 
 .preview-gradient {
   background: linear-gradient(135deg, #ee8ca9, #8064d9, #343b87);
@@ -359,7 +335,7 @@ body {
 }
 
 
-/* Theme 04 - Corporate Edge */
+
 
 .preview-corporate {
   background:
@@ -378,7 +354,7 @@ body {
 }
 
 
-/* Theme 05 - Blue Horizon */
+
 
 .preview-blue {
   background:
@@ -397,7 +373,7 @@ body {
 }
 
 
-/* Theme 06 - Soft Editorial */
+
 
 .preview-beige {
   background: #e9dfce;
@@ -416,7 +392,7 @@ body {
 }
 
 
-/* Theme 07 - Violet Dreams */
+
 
 .preview-purple {
   background:
@@ -435,7 +411,7 @@ body {
 }
 
 
-/* Theme 08 - Executive White */
+
 
 .preview-white {
   background: #f4f6fa;
@@ -453,9 +429,7 @@ body {
 }
 
 
-/* =====================================
-   10. THEME INFORMATION
-===================================== */
+
 
 .theme-info {
   min-height: 125px;
@@ -490,9 +464,7 @@ body {
 }
 
 
-/* =====================================
-   11. SELECT THEME BUTTON
-===================================== */
+
 
 .select-theme-btn {
   flex-shrink: 0;
@@ -518,9 +490,7 @@ body {
 }
 
 
-/* =====================================
-   12. COMING SOON
-===================================== */
+
 
 .coming-soon {
   margin-top: 45px;
@@ -532,9 +502,7 @@ body {
 }
 
 
-/* =====================================
-   13. FOOTER
-===================================== */
+
 
 .themes-footer {
   padding: 25px 7%;
@@ -549,9 +517,7 @@ body {
 }
 
 
-/* =====================================
-   14. ACCESSIBILITY
-===================================== */
+
 
 .filter-btn:focus-visible,
 .select-theme-btn:focus-visible,
@@ -561,9 +527,7 @@ body {
 }
 
 
-/* =====================================
-   15. TABLET RESPONSIVE
-===================================== */
+
 
 @media (max-width: 850px) {
 
@@ -588,9 +552,7 @@ body {
 }
 
 
-/* =====================================
-   16. MOBILE RESPONSIVE
-===================================== */
+
 
 @media (max-width: 650px) {
 
@@ -657,9 +619,7 @@ body {
 }
 
 
-/* =====================================
-   17. SMALL MOBILE
-===================================== */
+
 
 @media (max-width: 380px) {
 
@@ -675,9 +635,7 @@ body {
 }
 
 
-/* =====================================
-   18. REDUCED MOTION
-===================================== */
+
 
 @media (prefers-reduced-motion: reduce) {
 

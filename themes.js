@@ -1,4 +1,3 @@
-
 import {
   auth,
   db,
@@ -10,9 +9,6 @@ import {
 } from "./firebase.js";
 
 
-// =====================================
-// 1. GET HTML ELEMENTS
-// =====================================
 
 const themesGrid = document.getElementById("themesGrid");
 
@@ -21,9 +17,6 @@ const filterButtons = document.querySelectorAll(".filter-btn");
 const themeButtons = document.querySelectorAll(".select-theme-btn");
 
 
-// =====================================
-// 2. MESSAGE FUNCTION
-// =====================================
 
 function showMessage(message, type = "success") {
 
@@ -50,9 +43,6 @@ function showMessage(message, type = "success") {
 }
 
 
-// =====================================
-// 3. FILTER THEMES
-// =====================================
 
 filterButtons.forEach(button => {
 
@@ -60,7 +50,6 @@ filterButtons.forEach(button => {
 
     const selectedFilter = button.dataset.filter;
 
-    // Update active filter button
 
     filterButtons.forEach(filter => {
       filter.classList.remove("active");
@@ -69,7 +58,6 @@ filterButtons.forEach(button => {
     button.classList.add("active");
 
 
-    // Show matching themes
 
     document.querySelectorAll(".theme-card").forEach(card => {
 
@@ -95,9 +83,6 @@ filterButtons.forEach(button => {
 });
 
 
-// =====================================
-// 4. SHOW SELECTED THEME
-// =====================================
 
 function showSelectedTheme(themeId) {
 
@@ -124,9 +109,6 @@ function showSelectedTheme(themeId) {
 }
 
 
-// =====================================
-// 5. LOAD SAVED THEME
-// =====================================
 
 async function loadSavedTheme(user) {
 
@@ -162,9 +144,6 @@ async function loadSavedTheme(user) {
 }
 
 
-// =====================================
-// 6. SAVE SELECTED THEME
-// =====================================
 
 async function selectTheme(user, themeId, button) {
 
@@ -216,9 +195,6 @@ async function selectTheme(user, themeId, button) {
 }
 
 
-// =====================================
-// 7. THEME BUTTON EVENTS
-// =====================================
 
 let currentUser = null;
 
@@ -250,9 +226,6 @@ themeButtons.forEach(button => {
 });
 
 
-// =====================================
-// 8. FIREBASE AUTHENTICATION
-// =====================================
 
 onAuthStateChanged(auth, async user => {
 

@@ -6,10 +6,6 @@ import {
   onAuthStateChanged
 } from "./firebase.js";
 
-// =====================================
-// DOM ELEMENTS
-// =====================================
-
 const portfolioRoot = document.getElementById("portfolioRoot");
 
 const elements = {
@@ -53,10 +49,6 @@ const elements = {
   footerName: document.getElementById("portfolioFooterName"),
   footerYear: document.getElementById("portfolioFooterYear")
 };
-
-// =====================================
-// HELPER FUNCTIONS
-// =====================================
 
 function setText(element, value) {
   if (!element) return;
@@ -102,10 +94,6 @@ function validExternalURL(value) {
   }
 }
 
-// =====================================
-// PROFILE PHOTO
-// =====================================
-
 function displayPhoto(photoURL) {
   if (!photoURL) {
     elements.photoWrapper.hidden = true;
@@ -121,10 +109,6 @@ function displayPhoto(photoURL) {
 
   elements.photoWrapper.hidden = false;
 }
-
-// =====================================
-// SOCIAL LINKS
-// =====================================
 
 function setLink(element, value, label) {
   if (!element) return false;
@@ -187,10 +171,6 @@ function displayContact(profile) {
   hideSection(elements.contactSection, !hasContact);
 }
 
-// =====================================
-// SKILLS
-// =====================================
-
 function displaySkills(skills) {
   elements.skills.innerHTML = "";
 
@@ -214,10 +194,6 @@ function displaySkills(skills) {
 
   hideSection(elements.skillsSection, count === 0);
 }
-
-// =====================================
-// EDUCATION
-// =====================================
 
 function displayEducation(education) {
   elements.education.innerHTML = "";
@@ -289,10 +265,6 @@ function displayEducation(education) {
   hideSection(elements.educationSection, count === 0);
 }
 
-// =====================================
-// WORK EXPERIENCE
-// =====================================
-
 function displayExperience(experience) {
   elements.experience.innerHTML = "";
 
@@ -341,10 +313,6 @@ function displayExperience(experience) {
 
   hideSection(elements.experienceSection, count === 0);
 }
-
-// =====================================
-// PROJECTS
-// =====================================
 
 function displayProjects(projects) {
   elements.projects.innerHTML = "";
@@ -419,10 +387,6 @@ function displayProjects(projects) {
   hideSection(elements.projectsSection, count === 0);
 }
 
-// =====================================
-// CERTIFICATES
-// =====================================
-
 function displayCertificates(certificates) {
   elements.certificates.innerHTML = "";
 
@@ -485,10 +449,6 @@ function displayCertificates(certificates) {
 
   hideSection(elements.certificatesSection, count === 0);
 }
-
-// =====================================
-// SELECTED THEME
-// =====================================
 
 function applyTheme(themeName) {
   if (!themeName) return;
@@ -620,10 +580,6 @@ function applyTheme(themeName) {
   portfolioRoot.dataset.theme = themeName;
 }
 
-// =====================================
-// DISPLAY PROFILE
-// =====================================
-
 function displayProfile(profile) {
   const name = profile.fullName || "My Portfolio";
 
@@ -672,10 +628,6 @@ function displayProfile(profile) {
   applyTheme(profile.selectedTheme);
 }
 
-// =====================================
-// LOAD PROFILE FROM FIRESTORE
-// =====================================
-
 async function loadPortfolio(user) {
   try {
     const profileRef = doc(db, "users", user.uid);
@@ -712,10 +664,6 @@ async function loadPortfolio(user) {
     `;
   }
 }
-
-// =====================================
-// AUTHENTICATION CHECK
-// =====================================
 
 onAuthStateChanged(auth, user => {
   if (!user) {

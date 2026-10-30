@@ -1,8 +1,3 @@
-
-/* =====================================
-   CODEFOLIO AI - PUBLISH PAGE
-===================================== */
-
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +15,7 @@ body {
   line-height: 1.6;
 }
 
-/* TOP NAVIGATION */
+
 
 .topbar {
   width: 100%;
@@ -57,7 +52,7 @@ body {
   color: #70dfff;
 }
 
-/* MAIN CONTAINER */
+
 
 .container {
   width: min(1050px, 90%);
@@ -65,7 +60,7 @@ body {
   padding: 65px 0;
 }
 
-/* PAGE HEADING */
+
 
 .heading {
   text-align: center;
@@ -92,7 +87,7 @@ body {
   font-size: 15px;
 }
 
-/* PLAN CARDS */
+
 
 .options {
   display: grid;
@@ -192,7 +187,7 @@ body {
   margin-right: 10px;
 }
 
-/* BUTTONS */
+
 
 .download-button,
 .hosting-button {
@@ -232,7 +227,7 @@ button:disabled {
   transform: none;
 }
 
-/* PAYMENT SECTION */
+
 
 .payment-section {
   max-width: 550px;
@@ -273,7 +268,7 @@ button:disabled {
   font-size: 14px;
 }
 
-/* AMOUNT */
+
 
 .amount {
   padding: 20px;
@@ -294,7 +289,7 @@ button:disabled {
   margin: 5px 0;
 }
 
-/* DEMO QR */
+
 
 .qr-container {
   display: flex;
@@ -327,7 +322,7 @@ button:disabled {
   overflow: hidden;
 }
 
-/* This is a decorative pattern, not a scannable QR code. */
+
 .qr-grid::before,
 .qr-grid::after,
 .qr-pattern::before,
@@ -382,7 +377,7 @@ button:disabled {
   font-size: 12px;
 }
 
-/* PAYMENT INFORMATION */
+
 
 .payment-info {
   text-align: left;
@@ -406,7 +401,7 @@ button:disabled {
   color: #ffd37a;
 }
 
-/* DEMO WARNING */
+
 
 .demo-warning {
   color: #e3bd7b;
@@ -415,7 +410,7 @@ button:disabled {
   line-height: 1.7;
 }
 
-/* LINK SECTION */
+
 
 .link-section {
   max-width: 550px;
@@ -470,7 +465,7 @@ button:disabled {
   cursor: pointer;
 }
 
-/* MESSAGES */
+
 
 .message {
   min-height: 24px;
@@ -480,7 +475,7 @@ button:disabled {
   margin-top: 20px;
 }
 
-/* FOOTER */
+
 
 footer {
   padding: 25px;
@@ -490,13 +485,13 @@ footer {
   font-size: 12px;
 }
 
-/* ACCESSIBILITY */
+
 
 [hidden] {
   display: none !important;
 }
 
-/* RESPONSIVE */
+
 
 @media (max-width: 700px) {
   .topbar {

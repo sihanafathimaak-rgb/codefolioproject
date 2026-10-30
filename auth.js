@@ -1,4 +1,3 @@
-
 import {
     auth,
     setPersistence,
@@ -10,10 +9,6 @@ import {
     updateProfile
 } from "./firebase.js";
 
-
-// =====================================
-// 1. GET HTML ELEMENTS
-// =====================================
 
 const authForm = document.getElementById("authForm");
 
@@ -41,18 +36,10 @@ const switchPrompt = document.getElementById("switchPrompt");
 const switchAuth = document.getElementById("switchAuth");
 
 
-// =====================================
-// 2. CHECK SIGNUP URL
-// =====================================
-
 const urlParams = new URLSearchParams(window.location.search);
 
 let isSignup = urlParams.get("mode") === "signup";
 
-
-// =====================================
-// 3. SHOW MESSAGE
-// =====================================
 
 function showMessage(message, type = "error") {
 
@@ -73,10 +60,6 @@ function clearMessage() {
     authMessage.style.display = "none";
 }
 
-
-// =====================================
-// 4. FIREBASE ERROR HANDLING
-// =====================================
 
 function getErrorMessage(error) {
 
@@ -114,17 +97,11 @@ function getErrorMessage(error) {
 }
 
 
-// =====================================
-// 5. UPDATE LOGIN / SIGNUP UI
-// =====================================
-
 function updateAuthMode() {
 
     clearMessage();
 
     if (isSignup) {
-
-        // SIGNUP MODE
 
         authTitle.textContent = "Create Your Account";
 
@@ -150,8 +127,6 @@ function updateAuthMode() {
 
     } else {
 
-        // LOGIN MODE
-
         authTitle.textContent = "Welcome back";
 
         authSubtitle.textContent =
@@ -176,17 +151,12 @@ function updateAuthMode() {
 
     }
 
-    // Clear old form values when switching modes
     fullName.value = "";
     password.value = "";
     confirmPassword.value = "";
 
 }
 
-
-// =====================================
-// 6. SWITCH BETWEEN LOGIN AND SIGNUP
-// =====================================
 
 switchAuth.addEventListener("click", () => {
 
@@ -202,10 +172,6 @@ switchAuth.addEventListener("click", () => {
 
 });
 
-
-// =====================================
-// 7. EMAIL SIGNUP AND LOGIN
-// =====================================
 
 authForm.addEventListener("submit", async (event) => {
 
@@ -223,17 +189,12 @@ authForm.addEventListener("submit", async (event) => {
 
     try {
 
-        // Set login persistence
         const persistence = rememberMe.checked
             ? browserLocalPersistence
             : browserSessionPersistence;
 
         await setPersistence(auth, persistence);
 
-
-        // =================================
-        // SIGNUP
-        // =================================
 
         if (isSignup) {
 
@@ -265,7 +226,6 @@ authForm.addEventListener("submit", async (event) => {
             }
 
 
-            // Create Firebase account
             const userCredential =
                 await createUserWithEmailAndPassword(
                     auth,
@@ -274,7 +234,6 @@ authForm.addEventListener("submit", async (event) => {
                 );
 
 
-            // Save user's display name
             await updateProfile(userCredential.user, {
                 displayName: userName
             });
@@ -286,15 +245,10 @@ authForm.addEventListener("submit", async (event) => {
             );
 
 
-            // Go to dashboard
             window.location.replace("dashboard.html");
 
         }
 
-
-        // =================================
-        // LOGIN
-        // =================================
 
         else {
 
@@ -311,7 +265,6 @@ authForm.addEventListener("submit", async (event) => {
             );
 
 
-            // Go to dashboard
             window.location.replace("dashboard.html");
 
         }
@@ -334,10 +287,6 @@ authForm.addEventListener("submit", async (event) => {
 
 });
 
-
-// =====================================
-// 8. FORGOT PASSWORD
-// =====================================
 
 forgotPassword.addEventListener("click", async (event) => {
 
@@ -377,10 +326,6 @@ forgotPassword.addEventListener("click", async (event) => {
 
 });
 
-
-// =====================================
-// 9. INITIALIZE AUTH PAGE
-// =====================================
 
 updateAuthMode();
 

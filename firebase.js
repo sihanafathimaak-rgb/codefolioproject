@@ -1,4 +1,3 @@
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
 
 import {
@@ -32,7 +31,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-storage.js";
 
 
-// Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDIvTLpNtAY_qFoko4CS8UG8zoSotAoEuI",
   authDomain: "codefolio-3de28.firebaseapp.com",
@@ -43,23 +41,18 @@ const firebaseConfig = {
 };
 
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 
-// Firebase Authentication
 const auth = getAuth(app);
 
 
-// Firestore Database
 const db = getFirestore(app);
 
 
-// Firebase Storage
 const storage = getStorage(app);
 
 
-// Google Authentication Provider
 const googleProvider = new GoogleAuthProvider();
 
 googleProvider.setCustomParameters({
@@ -67,7 +60,6 @@ googleProvider.setCustomParameters({
 });
 
 
-// Export Firebase functions
 export {
   app,
   auth,
@@ -75,7 +67,6 @@ export {
   storage,
   googleProvider,
 
-  // Authentication
   setPersistence,
   browserLocalPersistence,
   browserSessionPersistence,
@@ -87,13 +78,11 @@ export {
   onAuthStateChanged,
   signOut,
 
-  // Firestore
   doc,
   getDoc,
   setDoc,
   serverTimestamp,
 
-  // Storage
   ref,
   uploadBytes,
   getDownloadURL

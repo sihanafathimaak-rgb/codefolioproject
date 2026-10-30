@@ -1,7 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // 1. Smooth scrolling for navigation links
   const navigationLinks = document.querySelectorAll(
     '.nav-links a[href^="#"]'
   );
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  // 2. Navbar scroll animation
   const navbar = document.querySelector(".navbar");
 
   if (navbar) {
@@ -43,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // 3. Feature cards reveal animation
   const cards = document.querySelectorAll(".feature-card");
 
   if ("IntersectionObserver" in window) {
@@ -71,14 +68,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   } else {
-    // Show cards normally in older browsers
     cards.forEach((card) => {
       card.classList.add("show-card");
     });
   }
 
 
-  // 4. Footer copyright year
   const footer = document.querySelector("footer");
 
   if (footer) {
@@ -91,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // 5. Page loaded confirmation
   console.log("CodeFolio AI landing page loaded successfully!");
 
 });

@@ -1,4 +1,3 @@
-
 import {
   auth,
   onAuthStateChanged,
@@ -6,37 +5,25 @@ import {
 } from "./firebase.js";
 
 
-// ===================================
-// 1. GET HTML ELEMENTS
-// ===================================
-
 const userName = document.getElementById("userName");
 const userEmail = document.getElementById("userEmail");
 const logoutBtn = document.getElementById("logoutBtn");
 
 
-// ===================================
-// 2. AUTHENTICATION STATE
-// ===================================
-
 onAuthStateChanged(auth, (user) => {
 
-  // If user is not logged in, redirect to login page
   if (!user) {
     window.location.replace("login.html");
     return;
   }
 
-  // Safely get email
   const email = user.email || "";
 
-  // Get display name or email username
   const displayName =
     user.displayName ||
     email.split("@")[0] ||
     "Creator";
 
-  // Update dashboard UI
   if (userName) {
     userName.textContent = displayName;
   }
@@ -48,15 +35,10 @@ onAuthStateChanged(auth, (user) => {
 });
 
 
-// ===================================
-// 3. LOGOUT FUNCTION
-// ===================================
-
 if (logoutBtn) {
 
   logoutBtn.addEventListener("click", async () => {
 
-    // Prevent multiple clicks
     if (logoutBtn.disabled) return;
 
     logoutBtn.disabled = true;
@@ -64,10 +46,8 @@ if (logoutBtn) {
 
     try {
 
-      // Sign out from Firebase
       await signOut(auth);
 
-      // Redirect to login page
       window.location.replace("login.html");
 
     } catch (error) {
@@ -76,7 +56,6 @@ if (logoutBtn) {
 
       alert("Unable to log out. Please try again.");
 
-      // Enable button again if logout fails
       logoutBtn.disabled = false;
       logoutBtn.textContent = "Logout";
 
@@ -86,9 +65,5 @@ if (logoutBtn) {
 
 }
 
-
-// ===================================
-// 4. PAGE LOADED
-// ===================================
 
 console.log("CodeFolio AI dashboard loaded successfully!");
