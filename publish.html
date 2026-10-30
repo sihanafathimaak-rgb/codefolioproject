@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b18">
+  <title>Publish Portfolio | CodeFolio AI</title>
+  <link rel="stylesheet" href="publish.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="dashboard.html" class="back-link">← Dashboard</a>
+    <div class="brand">CodeFolio <span>AI</span></div>
+    <a href="preview.html" class="preview-link">Preview Portfolio</a>
+  </header>
+
+  <main class="container">
+
+    <section class="heading">
+      <span class="eyebrow">YOUR PORTFOLIO IS READY</span>
+      <h1>Publish Your Portfolio</h1>
+      <p>Choose how you want to share your professional portfolio.</p>
+    </section>
+
+    <section class="options">
+
+      <!-- FREE DOWNLOAD -->
+      <article class="option-card">
+        <div class="option-icon">📦</div>
+        <span class="plan-label free-label">FREE</span>
+
+        <h2>Download Portfolio</h2>
+        <p>
+          Download your complete portfolio website
+          and host it wherever you want.
+        </p>
+
+        <h3>₹0 <small>/ Free</small></h3>
+
+        <ul>
+          <li>Complete portfolio website</li>
+          <li>HTML, CSS and JavaScript files</li>
+          <li>Portfolio images and assets</li>
+          <li>Download as ZIP</li>
+        </ul>
+
+        <button id="downloadButton" class="download-button">
+          <span>↓</span> Download Portfolio
+        </button>
+      </article>
+
+      <!-- PAID HOSTING -->
+      <article class="option-card featured">
+        <div class="option-icon">🌐</div>
+        <span class="plan-label premium-label">PREMIUM HOSTING</span>
+
+        <h2>Host Your Portfolio</h2>
+        <p>
+          Make your portfolio live online with
+          your personalized CodeFolio link.
+        </p>
+
+        <h3>₹1,000 <small>/ month</small></h3>
+
+        <ul>
+          <li>Online portfolio hosting</li>
+          <li>Personalized portfolio URL</li>
+          <li>Share your portfolio anywhere</li>
+          <li>Monthly hosting subscription</li>
+        </ul>
+
+        <button id="hostingButton" class="hosting-button">
+          Choose Hosting →
+        </button>
+      </article>
+
+    </section>
+
+    <!-- PAYMENT SCREEN -->
+    <section id="paymentSection" class="payment-section" hidden>
+
+      <button id="closePayment" class="close-button">
+        ← Back to plans
+      </button>
+
+      <div class="payment-card">
+
+        <span class="eyebrow">CODEFOLIO AI HOSTING</span>
+        <h2>Complete Your Payment</h2>
+
+        <p class="payment-description">
+          Scan the demo QR code shown below.
+        </p>
+
+        <div class="amount">
+          <span>Amount to pay</span>
+          <h1>₹1,000</h1>
+          <p>Monthly subscription</p>
+        </div>
+
+        <div class="qr-container">
+          <div class="qr-placeholder">
+            <div class="qr-grid" aria-label="Decorative demo QR illustration">
+              <div class="qr-pattern"></div>
+            </div>
+          </div>
+
+          <span class="demo-badge">DEMO QR CODE</span>
+
+          <p>
+            This is a sample QR illustration.
+            It cannot receive real payments.
+          </p>
+        </div>
+
+        <div class="payment-info">
+          <p><strong>Plan:</strong> CodeFolio AI Hosting</p>
+          <p><strong>Billing:</strong> Monthly</p>
+          <p><strong>Status:</strong>
+            <span id="paymentStatus">Waiting for payment</span>
+          </p>
+        </div>
+
+        <button id="demoPaymentButton" class="hosting-button">
+          Simulate Demo Payment
+        </button>
+
+        <p class="demo-warning">
+          Demo mode only. No money will be collected.
+          This will not activate real hosting.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- PORTFOLIO LINK -->
+    <section id="linkSection" class="link-section" hidden>
+      <div class="link-card">
+        <div class="success-icon">✓</div>
+        <h2>Demo Completed!</h2>
+        <p>Your personalized portfolio link preview:</p>
+
+        <div class="link-preview">
+          <span id="portfolioLink"></span>
+          <button id="copyLinkButton">Copy</button>
+        </div>
+
+        <p class="demo-warning">
+          This is only a sample link. Your portfolio is not
+          actually hosted or publicly available yet.
+        </p>
+      </div>
+    </section>
+
+    <p id="publishMessage" class="message" aria-live="polite"></p>
+
+  </main>
+
+  <footer>
+    © <span id="currentYear"></span> CodeFolio AI. All rights reserved.
+  </footer>
+
+  <script type="module" src="publish.js"></script>
+</body>
+</html>

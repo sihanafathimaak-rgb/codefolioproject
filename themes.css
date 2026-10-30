@@ -1,0 +1,692 @@
+
+/* =====================================
+   1. GLOBAL STYLES
+===================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #f5f5ff;
+
+  background:
+    radial-gradient(circle at 15% 10%, #24205b 0, transparent 35%),
+    radial-gradient(circle at 90% 80%, #102c46 0, transparent 35%),
+    #050816;
+
+  overflow-x: hidden;
+}
+
+
+/* =====================================
+   2. NAVBAR
+===================================== */
+
+.navbar {
+  width: 100%;
+  min-height: 80px;
+  padding: 0 7%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #ffffff15;
+
+  background: rgba(5, 8, 22, 0.75);
+  backdrop-filter: blur(15px);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: white;
+  text-decoration: none;
+
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.ai-box {
+  padding: 9px 11px;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #8265ff, #29d8e9);
+
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+
+  box-shadow: 0 0 20px #8265ff35;
+}
+
+.brand-name {
+  letter-spacing: 0.5px;
+}
+
+.back-btn {
+  padding: 11px 20px;
+
+  border: 1px solid #ffffff25;
+  border-radius: 10px;
+
+  background: #ffffff0c;
+  color: white;
+
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #8265ff;
+  border-color: #8265ff;
+}
+
+
+/* =====================================
+   3. MAIN CONTAINER
+===================================== */
+
+.themes-container {
+  width: 86%;
+  max-width: 1250px;
+
+  margin: 75px auto 85px;
+}
+
+
+/* =====================================
+   4. PAGE HEADING
+===================================== */
+
+.themes-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.eyebrow {
+  color: #9b8aff;
+
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+
+  margin-bottom: 18px;
+}
+
+.themes-heading h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.2;
+
+  margin-bottom: 16px;
+}
+
+.themes-heading h1 span {
+  background: linear-gradient(90deg, #a78bfa, #42d9ed);
+
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.description {
+  max-width: 620px;
+  margin: auto;
+
+  color: #a7acc2;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =====================================
+   5. THEME FILTERS
+===================================== */
+
+.theme-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 12px;
+  margin-bottom: 38px;
+}
+
+.filter-btn {
+  padding: 11px 20px;
+
+  border: 1px solid #ffffff20;
+  border-radius: 30px;
+
+  background: #ffffff08;
+  color: #c4c6d8;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: linear-gradient(135deg, #8265ff, #6251cf);
+  border-color: #8265ff;
+  color: white;
+}
+
+
+/* =====================================
+   6. THEMES GRID
+===================================== */
+
+.themes-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 28px;
+}
+
+
+/* =====================================
+   7. THEME CARD
+===================================== */
+
+.theme-card {
+  overflow: hidden;
+
+  border: 1px solid #ffffff18;
+  border-radius: 20px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.025)
+  );
+
+  backdrop-filter: blur(12px);
+
+  transition: 0.35s ease;
+}
+
+.theme-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #9277ff;
+
+  box-shadow: 0 15px 40px #00000035;
+}
+
+
+/* =====================================
+   8. THEME PREVIEW
+===================================== */
+
+.theme-preview {
+  min-height: 270px;
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+  position: relative;
+}
+
+
+/* Mini Navbar */
+
+.mini-navbar {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  opacity: 0.85;
+}
+
+
+/* Mini Content */
+
+.mini-content {
+  margin: auto 0;
+  padding: 18px 0;
+}
+
+.mini-content > span {
+  display: block;
+
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 2px;
+
+  margin-bottom: 13px;
+}
+
+.mini-content h2 {
+  font-size: clamp(25px, 3vw, 37px);
+  line-height: 1.15;
+
+  margin-bottom: 10px;
+}
+
+.mini-content p {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.mini-button {
+  display: inline-block;
+
+  padding: 9px 15px;
+
+  border: 1px solid currentColor;
+  border-radius: 5px;
+
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+
+/* =====================================
+   9. INDIVIDUAL THEME DESIGNS
+===================================== */
+
+
+/* Theme 01 - Pure Minimal */
+
+.preview-minimal {
+  background: #f7f7f4;
+  color: #171717;
+}
+
+.preview-minimal .mini-button {
+  background: #171717;
+  color: white;
+  border-color: #171717;
+}
+
+
+/* Theme 02 - Midnight Pro */
+
+.preview-dark {
+  background:
+    radial-gradient(circle at 80% 80%, #373078, transparent 45%),
+    #10101e;
+  color: white;
+}
+
+.preview-dark .mini-content h2 {
+  color: #c7b9ff;
+}
+
+.preview-dark .mini-button {
+  background: #8265ff;
+  border-color: #8265ff;
+}
+
+
+/* Theme 03 - Creative Flow */
+
+.preview-gradient {
+  background: linear-gradient(135deg, #ee8ca9, #8064d9, #343b87);
+  color: white;
+}
+
+.preview-gradient .mini-button {
+  background: white;
+  color: #5b438e;
+  border-color: white;
+}
+
+
+/* Theme 04 - Corporate Edge */
+
+.preview-corporate {
+  background:
+    linear-gradient(120deg, #172e49, #294b68);
+  color: white;
+}
+
+.preview-corporate .mini-content h2 {
+  color: #a9d9f2;
+}
+
+.preview-corporate .mini-button {
+  background: #a9d9f2;
+  color: #172e49;
+  border-color: #a9d9f2;
+}
+
+
+/* Theme 05 - Blue Horizon */
+
+.preview-blue {
+  background:
+    radial-gradient(circle at 85% 15%, #1c8cb7, transparent 45%),
+    #071e3c;
+  color: white;
+}
+
+.preview-blue .mini-content h2 {
+  color: #6ee7f9;
+}
+
+.preview-blue .mini-button {
+  background: #20b9d2;
+  border-color: #20b9d2;
+}
+
+
+/* Theme 06 - Soft Editorial */
+
+.preview-beige {
+  background: #e9dfce;
+  color: #443b32;
+}
+
+.preview-beige .mini-content h2 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+}
+
+.preview-beige .mini-button {
+  background: #443b32;
+  color: white;
+  border-color: #443b32;
+}
+
+
+/* Theme 07 - Violet Dreams */
+
+.preview-purple {
+  background:
+    radial-gradient(circle at 85% 15%, #9b68df, transparent 40%),
+    #25113f;
+  color: white;
+}
+
+.preview-purple .mini-content h2 {
+  color: #e2c7ff;
+}
+
+.preview-purple .mini-button {
+  background: #b77bff;
+  border-color: #b77bff;
+}
+
+
+/* Theme 08 - Executive White */
+
+.preview-white {
+  background: #f4f6fa;
+  color: #182b46;
+}
+
+.preview-white .mini-content h2 {
+  color: #234e7d;
+}
+
+.preview-white .mini-button {
+  background: #234e7d;
+  color: white;
+  border-color: #234e7d;
+}
+
+
+/* =====================================
+   10. THEME INFORMATION
+===================================== */
+
+.theme-info {
+  min-height: 125px;
+  padding: 22px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.theme-number {
+  color: #9b8aff;
+
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.theme-info h3 {
+  color: white;
+  font-size: 19px;
+
+  margin: 8px 0;
+}
+
+.theme-info p {
+  color: #a7acc2;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* =====================================
+   11. SELECT THEME BUTTON
+===================================== */
+
+.select-theme-btn {
+  flex-shrink: 0;
+
+  padding: 11px 16px;
+
+  border: 1px solid #8265ff;
+  border-radius: 9px;
+
+  background: linear-gradient(135deg, #8265ff, #6251cf);
+  color: white;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.select-theme-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px #8265ff45;
+}
+
+
+/* =====================================
+   12. COMING SOON
+===================================== */
+
+.coming-soon {
+  margin-top: 45px;
+
+  text-align: center;
+
+  color: #9298b2;
+  font-size: 13px;
+}
+
+
+/* =====================================
+   13. FOOTER
+===================================== */
+
+.themes-footer {
+  padding: 25px 7%;
+
+  border-top: 1px solid #ffffff15;
+
+  color: #858ba5;
+  font-size: 13px;
+  line-height: 1.8;
+
+  text-align: center;
+}
+
+
+/* =====================================
+   14. ACCESSIBILITY
+===================================== */
+
+.filter-btn:focus-visible,
+.select-theme-btn:focus-visible,
+.back-btn:focus-visible {
+  outline: 2px solid #42d9ed;
+  outline-offset: 4px;
+}
+
+
+/* =====================================
+   15. TABLET RESPONSIVE
+===================================== */
+
+@media (max-width: 850px) {
+
+  .themes-container {
+    width: 90%;
+    margin-top: 55px;
+  }
+
+  .themes-grid {
+    gap: 18px;
+  }
+
+  .theme-preview {
+    min-height: 245px;
+  }
+
+  .theme-info {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+}
+
+
+/* =====================================
+   16. MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 650px) {
+
+  .navbar {
+    min-height: 70px;
+    padding: 0 5%;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .back-btn {
+    padding: 9px 13px;
+    font-size: 12px;
+  }
+
+  .themes-container {
+    width: 90%;
+    margin: 45px auto 60px;
+  }
+
+  .themes-heading {
+    margin-bottom: 32px;
+  }
+
+  .themes-heading h1 {
+    font-size: 32px;
+  }
+
+  .theme-filters {
+    justify-content: flex-start;
+    gap: 9px;
+  }
+
+  .filter-btn {
+    padding: 9px 14px;
+    font-size: 11px;
+  }
+
+  .themes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .theme-preview {
+    min-height: 250px;
+  }
+
+  .theme-info {
+    min-height: auto;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .theme-info h3 {
+    font-size: 17px;
+  }
+
+  .select-theme-btn {
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+
+}
+
+
+/* =====================================
+   17. SMALL MOBILE
+===================================== */
+
+@media (max-width: 380px) {
+
+  .theme-info {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .select-theme-btn {
+    width: 100%;
+  }
+
+}
+
+
+/* =====================================
+   18. REDUCED MOTION
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+}

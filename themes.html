@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#030719">
+
+  <title>CodeFolio AI | Choose Your Theme</title>
+
+  <link rel="stylesheet" href="themes.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+
+    <a href="dashboard.html" class="logo">
+      <span class="ai-box">AI</span>
+      <span class="brand-name">CodeFolio</span>
+    </a>
+
+    <a href="dashboard.html" class="back-btn">
+      ← Dashboard
+    </a>
+
+  </header>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="themes-container">
+
+    <section class="themes-heading">
+
+      <p class="eyebrow">MAKE IT YOURS</p>
+
+      <h1>Choose Your <span>Portfolio Theme</span></h1>
+
+      <p class="description">
+        Choose a design that represents your personality.
+        You can change your theme anytime.
+      </p>
+
+    </section>
+
+
+    <!-- THEME FILTERS -->
+    <section class="theme-filters">
+
+      <button class="filter-btn active" data-filter="all">
+        All Themes
+      </button>
+
+      <button class="filter-btn" data-filter="minimal">
+        Minimal
+      </button>
+
+      <button class="filter-btn" data-filter="modern">
+        Modern
+      </button>
+
+      <button class="filter-btn" data-filter="creative">
+        Creative
+      </button>
+
+      <button class="filter-btn" data-filter="professional">
+        Professional
+      </button>
+
+    </section>
+
+
+    <!-- THEMES GRID -->
+    <section class="themes-grid" id="themesGrid">
+
+
+      <!-- THEME 01 -->
+      <article class="theme-card" data-category="minimal">
+
+        <div class="theme-preview preview-minimal">
+          <div class="mini-navbar">PORTFOLIO</div>
+          <div class="mini-content">
+            <span>HELLO, I'M</span>
+            <h2>Alex Morgan</h2>
+            <p>Creative Developer</p>
+            <div class="mini-button">VIEW WORK</div>
+          </div>
+        </div>
+
+        <div class="theme-info">
+          <div>
+            <span class="theme-number">THEME 01</span>
+            <h3>Pure Minimal</h3>
+            <p>Clean, simple and elegant.</p>
+          </div>
+
+          <button class="select-theme-btn"
+            data-theme="pure-minimal">
+            Select Theme
+          </button>
+        </div>
+
+      </article>
+
+
+      <!-- THEME 02 -->
+      <article class="theme-card" data-category="modern">
+
+        <div class="theme-preview preview-dark">
+          <div class="mini-navbar">AM.</div>
+          <div class="mini-content">
+            <span>DESIGN • DEVELOP • CREATE</span>
+            <h2>Building Digital<br>Experiences.</h2>
+            <p>Frontend Developer</p>
+            <div class="mini-button">EXPLORE</div>
+          </div>
+        </div>
+
+        <div class="theme-info">
+          <div>
+            <span class="theme-number">THEME 02</span>
+            <h3>Midnight Pro</h3>
+            <p>Bold dark professional design.</p>
+          </div>
+
+          <button class="select-theme-btn"
+            data-theme="midnight-pro">
+            Select Theme
+          </button>
+        </div>
+
+      </article>
+
+
+      <!-- THEME 03 -->
+      <article class="theme-card" data-category="creative">
+
+        <div class="theme-preview preview-gradient">
+          <div class="mini-navbar">CREATIVE SPACE</div>
+          <div class="mini-content">
+            <span>WELCOME TO MY WORLD</span>
+            <h2>Think.<br>Create.<br>Inspire.</h2>
+            <p>Designer & Developer</p>
+            <div class="mini-button">DISCOVER</div>
+          </div>
+        </div>
+
+        <div class="theme-info">
+          <div>
+            <span class="theme-number">THEME 03</span>
+            <h3>Creative Flow</h3>
+            <p>Colorful and expressive.</p>
+          </div>
+
+          <button class="select-theme-btn"
+            data-theme="creative-flow">
+            Select Theme
+          </button>
+        </div>
+
+      </article>
+
+
+      <!-- THEME 04 -->
+      <article class="theme-card" data-category="professional">
+
+        <div class="theme-preview preview-corporate">
+          <div class="mini-navbar">ALEX MORGAN</div>
+          <div class="mini-content">
+            <span>PROFESSIONAL PORTFOLIO</span>
+            <h2>Turning Ideas<br>Into Reality.</h2>
+            <p>Software Engineer</p>
+            <div class="mini-button">MY EXPERIENCE</div>
+          </div>
+        </div>
+
+        <div class="theme-info">
+          <div>
+            <span class="theme-number">THEME 04</span>
+            <h3>Corporate Edge</h3>
+            <p>Professional and trustworthy.</p>
+          </div>
+
+          <button class="select-theme-btn"
+            data-theme="corporate-edge">
+            Select Theme
+          </button>
+        </div>
+
+      </article>
+
+
+      <!-- THEME 05 -->
+      <article class="theme-card" data-category="modern">
+
+        <div class="theme-preview preview-blue">
+          <div class="mini-navbar">ALEX.DEV</div>
+          <div class="mini-content">
+            <span>FULL STACK DEVELOPER</span>
+            <h2>Code Your<br>Future.</h2>
+            <p>Building meaningful products.</p>
+            <div class="mini-button">VIEW PROJECTS</div>
+          </div>
+        </div>
+
+        <div class="theme-info">
+          <div>
+            <span class="theme-number">THEME 05</span>
+            <h3>Blue Horizon</h3>
+            <p>Fresh and modern technology style.</p>
+          </div>
+
+          <button class="select-theme-btn"
+            data-theme="blue-horizon">
+            Select Theme
+          </button>
+        </div>
+
+      </article>
+
+
+      <!-- THEME 06 -->
+      <article class="theme-card" data-category="minimal">
+
+        <div class="theme-preview preview-beige">
+          <div class="mini-navbar">ALEX MORGAN</div>
+          <div class="mini-content">
+            <span>PERSONAL PORTFOLIO</span>
+            <h2>Less Noise.<br>More Impact.</h2>
+            <p>Developer & Problem Solver</p>
+            <div class="mini-button">ABOUT ME</div>
+          </div>
+        </div>
+
+        <div class="theme-info">
+          <div>
+            <span class="theme-number">THEME 06</span>
+            <h3>Soft Editorial</h3>
+            <p>Warm, refined and minimal.</p>
+          </div>
+
+          <button class="select-theme-btn"
+            data-theme="soft-editorial">
+            Select Theme
+          </button>
+        </div>
+
+      </article>
+
+
+      <!-- THEME 07 -->
+      <article class="theme-card" data-category="creative">
+
+        <div class="theme-preview preview-purple">
+          <div class="mini-navbar">✦ PORTFOLIO</div>
+          <div class="mini-content">
+            <span>DREAM • DESIGN • BUILD</span>
+            <h2>Make It<br>Extraordinary.</h2>
+            <p>Creative Designer</p>
+            <div class="mini-button">LET'S CONNECT</div>
+          </div>
+        </div>
+
+        <div class="theme-info">
+          <div>
+            <span class="theme-number">THEME 07</span>
+            <h3>Violet Dreams</h3>
+            <p>Expressive purple aesthetics.</p>
+          </div>
+
+          <button class="select-theme-btn"
+            data-theme="violet-dreams">
+            Select Theme
+          </button>
+        </div>
+
+      </article>
+
+
+      <!-- THEME 08 -->
+      <article class="theme-card" data-category="professional">
+
+        <div class="theme-preview preview-white">
+          <div class="mini-navbar">ALEX MORGAN</div>
+          <div class="mini-content">
+            <span>MY PROFESSIONAL JOURNEY</span>
+            <h2>Driven By<br>Excellence.</h2>
+            <p>Business Analyst</p>
+            <div class="mini-button">VIEW PROFILE</div>
+          </div>
+        </div>
+
+        <div class="theme-info">
+          <div>
+            <span class="theme-number">THEME 08</span>
+            <h3>Executive White</h3>
+            <p>Elegant corporate presentation.</p>
+          </div>
+
+          <button class="select-theme-btn"
+            data-theme="executive-white">
+            Select Theme
+          </button>
+        </div>
+
+      </article>
+
+
+    </section>
+
+    <p class="coming-soon">
+      More premium themes are coming soon.
+    </p>
+
+  </main>
+
+
+  <footer class="themes-footer">
+    Build smarter. Showcase better.
+    <br>
+    © <span id="currentYear"></span> CodeFolio AI.
+  </footer>
+
+
+  <script type="module" src="themes.js"></script>
+
+  <script>
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>

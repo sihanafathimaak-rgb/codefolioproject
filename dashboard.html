@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#030719">
+
+  <title>CodeFolio AI | Dashboard</title>
+
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+
+    <a href="index.html" class="logo">
+      <span class="ai-box">AI</span>
+      <span class="brand-name">CodeFolio</span>
+    </a>
+
+    <button id="logoutBtn" class="logout-btn" type="button">
+      Logout
+    </button>
+
+  </header>
+
+
+  <!-- DASHBOARD CONTENT -->
+  <main class="dashboard">
+
+    <!-- WELCOME SECTION -->
+    <section class="welcome-section">
+
+      <p class="welcome-label">YOUR CREATOR SPACE</p>
+
+      <h1>
+        Welcome back,
+        <span id="userName">Creator</span>!
+      </h1>
+
+      <p class="welcome-description">
+        Build, customize and publish your professional portfolio
+        with CodeFolio AI.
+      </p>
+
+      <p class="user-email" id="userEmail"></p>
+
+    </section>
+
+
+    <!-- DASHBOARD CARDS -->
+    <section class="dashboard-section">
+
+      <div class="section-heading">
+        <h2>Your Portfolio Journey</h2>
+
+        <p>
+          Complete these steps to create your portfolio.
+        </p>
+      </div>
+
+
+      <div class="dashboard-grid">
+
+        <!-- PROFILE CARD -->
+        <a href="profile.html" class="dashboard-card">
+
+          <div class="card-icon">👤</div>
+
+          <span class="card-step">STEP 01</span>
+
+          <h3>Complete Profile</h3>
+
+          <p>
+            Add your personal information, profile picture,
+            contact details and introduction.
+          </p>
+
+          <span class="card-link">
+            Complete Profile →
+          </span>
+
+        </a>
+
+
+        <!-- THEME CARD -->
+        <a href="themes.html" class="dashboard-card">
+
+          <div class="card-icon">🎨</div>
+
+          <span class="card-step">STEP 02</span>
+
+          <h3>Choose Your Theme</h3>
+
+          <p>
+            Explore premium portfolio themes and select
+            the design that represents you.
+          </p>
+
+          <span class="card-link">
+            Explore Themes →
+          </span>
+
+        </a>
+
+
+        <!-- PREVIEW CARD -->
+        <a href="preview.html" class="dashboard-card">
+
+          <div class="card-icon">👁️</div>
+
+          <span class="card-step">STEP 03</span>
+
+          <h3>Live Preview</h3>
+
+          <p>
+            Preview your portfolio and check how your
+            personal website looks before publishing.
+          </p>
+
+          <span class="card-link">
+            View Preview →
+          </span>
+
+        </a>
+
+
+        <!-- PUBLISH CARD -->
+        <a href="publish.html" class="dashboard-card">
+
+          <div class="card-icon">🚀</div>
+
+          <span class="card-step">STEP 04</span>
+
+          <h3>Publish Portfolio</h3>
+
+          <p>
+            Get your portfolio ready to share with
+            recruiters, clients and the world.
+          </p>
+
+          <span class="card-link">
+            Publish Now →
+          </span>
+
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="dashboard-footer">
+
+    <p>
+      Build smarter. Showcase better.
+    </p>
+
+    <p>
+      © <span id="currentYear"></span> CodeFolio AI.
+      All rights reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- FIREBASE DASHBOARD SCRIPT -->
+  <script type="module" src="dashboard.js"></script>
+
+  <script>
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>

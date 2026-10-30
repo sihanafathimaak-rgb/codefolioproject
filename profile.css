@@ -1,0 +1,731 @@
+
+/* =====================================
+   1. GLOBAL STYLES
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #f5f5ff;
+
+    background:
+        radial-gradient(circle at 12% 8%, #24205b 0, transparent 35%),
+        radial-gradient(circle at 90% 75%, #102c46 0, transparent 35%),
+        #050816;
+
+    overflow-x: hidden;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* =====================================
+   2. NAVBAR
+===================================== */
+
+.navbar {
+    width: 100%;
+    min-height: 80px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(5, 8, 22, 0.75);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid #ffffff15;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.ai-box {
+    padding: 9px 11px;
+    border-radius: 10px;
+
+    background: linear-gradient(135deg, #8265ff, #29d8e9);
+
+    color: white;
+    font-size: 15px;
+
+    box-shadow: 0 0 20px #8265ff35;
+}
+
+.back-btn {
+    padding: 11px 20px;
+
+    border: 1px solid #ffffff25;
+    border-radius: 9px;
+
+    color: #d8d9eb;
+    background: #ffffff08;
+
+    text-decoration: none;
+    font-size: 14px;
+
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #8265ff;
+    border-color: #8265ff;
+    color: white;
+}
+
+
+/* =====================================
+   3. MAIN CONTAINER
+===================================== */
+
+.profile-container {
+    width: 88%;
+    max-width: 1050px;
+
+    margin: 65px auto 90px;
+}
+
+
+/* =====================================
+   4. PAGE HEADING
+===================================== */
+
+.page-heading {
+    margin-bottom: 45px;
+}
+
+.eyebrow {
+    color: #a78bfa;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+
+    margin-bottom: 16px;
+}
+
+.page-heading h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.2;
+
+    margin-bottom: 16px;
+}
+
+.page-heading h1 span {
+    background: linear-gradient(90deg, #a78bfa, #42d9ed);
+
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.page-heading > p:last-child {
+    max-width: 650px;
+
+    color: #a7acc2;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* =====================================
+   5. FORM SECTIONS
+===================================== */
+
+.form-section {
+    margin-bottom: 25px;
+    padding: 32px;
+
+    border: 1px solid #ffffff18;
+    border-radius: 20px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.075),
+        rgba(255, 255, 255, 0.025)
+    );
+
+    backdrop-filter: blur(12px);
+
+    transition: border-color 0.3s ease;
+}
+
+.form-section:hover {
+    border-color: #ffffff30;
+}
+
+
+/* =====================================
+   6. SECTION HEADING
+===================================== */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    margin-bottom: 28px;
+}
+
+.section-number {
+    min-width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(130, 101, 255, 0.25),
+        rgba(41, 216, 233, 0.12)
+    );
+
+    border: 1px solid #9277ff40;
+
+    color: #b9a8ff;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.section-heading h2 {
+    color: #ffffff;
+    font-size: 21px;
+
+    margin-bottom: 5px;
+}
+
+.section-heading p {
+    color: #9299b2;
+    font-size: 13px;
+}
+
+
+/* =====================================
+   7. PROFILE PHOTO UPLOAD
+===================================== */
+
+.photo-upload {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.photo-preview {
+    width: 110px;
+    height: 110px;
+    min-width: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+    border: 2px solid #9277ff;
+
+    background: linear-gradient(
+        135deg,
+        #25234b,
+        #102c46
+    );
+
+    color: #b9aaff;
+    font-size: 42px;
+}
+
+.photo-preview img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.photo-controls p {
+    margin-top: 12px;
+
+    color: #8f96ae;
+    font-size: 12px;
+}
+
+.upload-btn {
+    display: inline-block;
+
+    padding: 11px 20px;
+
+    border-radius: 9px;
+
+    background: linear-gradient(135deg, #8265ff, #5b8df5);
+
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.upload-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px #8265ff35;
+}
+
+
+/* =====================================
+   8. FORM GRID
+===================================== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 22px;
+    min-width: 0;
+}
+
+.form-grid .form-group {
+    margin-bottom: 0;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+
+/* =====================================
+   9. LABELS
+===================================== */
+
+.form-group label {
+    margin-bottom: 9px;
+
+    color: #e4e5f1;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =====================================
+   10. INPUTS / SELECT / TEXTAREA
+===================================== */
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    min-height: 48px;
+
+    padding: 13px 15px;
+
+    border: 1px solid #ffffff20;
+    border-radius: 10px;
+
+    outline: none;
+
+    background: rgba(5, 8, 22, 0.65);
+
+    color: #f5f5ff;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #777f99;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #9277ff;
+
+    box-shadow: 0 0 0 3px #9277ff20;
+
+    background: rgba(12, 15, 38, 0.9);
+}
+
+.form-group input[readonly] {
+    color: #9299b2;
+    cursor: not-allowed;
+    background: #ffffff08;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.7;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group select option {
+    background: #10152c;
+    color: white;
+}
+
+
+/* =====================================
+   11. REPEATING CARDS
+===================================== */
+
+.repeat-card {
+    padding: 23px;
+    margin-bottom: 18px;
+
+    border: 1px solid #ffffff15;
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.repeat-card .form-grid {
+    margin-bottom: 20px;
+}
+
+
+/* =====================================
+   12. ADD BUTTON
+===================================== */
+
+.add-btn {
+    padding: 12px 19px;
+
+    border: 1px dashed #9277ff80;
+    border-radius: 9px;
+
+    background: #8265ff10;
+    color: #b9a8ff;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.add-btn:hover {
+    background: #8265ff25;
+    border-color: #a78bfa;
+    color: white;
+}
+
+
+/* =====================================
+   13. REMOVE BUTTON
+===================================== */
+
+.remove-btn {
+    padding: 9px 14px;
+
+    border: 1px solid #ff737340;
+    border-radius: 8px;
+
+    background: #ff737310;
+    color: #ff9999;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.remove-btn:hover {
+    background: #ff737325;
+    border-color: #ff7373;
+}
+
+
+/* =====================================
+   14. EXPERIENCE SECTION
+===================================== */
+
+.conditional-section {
+    margin-top: 25px;
+    padding-top: 25px;
+
+    border-top: 1px solid #ffffff15;
+}
+
+.conditional-section[hidden] {
+    display: none !important;
+}
+
+.conditional-section h3 {
+    color: #d9d5ff;
+    font-size: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================
+   15. FORM ACTIONS
+===================================== */
+
+.form-actions {
+    padding: 35px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 17px;
+
+    text-align: center;
+}
+
+.form-actions > p:first-child {
+    color: #9299b2;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.save-btn {
+    width: 100%;
+    max-width: 350px;
+
+    padding: 16px 25px;
+
+    border: none;
+    border-radius: 11px;
+
+    background: linear-gradient(135deg, #8265ff, #29bcd7);
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px #8265ff25;
+
+    transition: 0.3s ease;
+}
+
+.save-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px #8265ff45;
+}
+
+.save-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.cancel-btn {
+    color: #a7acc2;
+
+    font-size: 13px;
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.cancel-btn:hover {
+    color: #ffffff;
+}
+
+#profileMessage {
+    min-height: 20px;
+    font-size: 13px;
+}
+
+#profileMessage.success {
+    color: #6ee7b7;
+}
+
+#profileMessage.error {
+    color: #ff9999;
+}
+
+
+/* =====================================
+   16. FOCUS ACCESSIBILITY
+===================================== */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+.upload-btn:focus-visible {
+    outline: 2px solid #42d9ed;
+    outline-offset: 4px;
+}
+
+
+/* =====================================
+   17. TABLET RESPONSIVE
+===================================== */
+
+@media (max-width: 800px) {
+
+    .profile-container {
+        width: 90%;
+        margin-top: 50px;
+    }
+
+    .form-section {
+        padding: 27px;
+    }
+
+}
+
+
+/* =====================================
+   18. MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        min-height: 70px;
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .back-btn {
+        padding: 9px 13px;
+        font-size: 12px;
+    }
+
+    .profile-container {
+        width: 92%;
+        margin: 40px auto 60px;
+    }
+
+    .page-heading {
+        margin-bottom: 32px;
+    }
+
+    .page-heading h1 {
+        font-size: 32px;
+    }
+
+    .form-section {
+        padding: 21px 17px;
+        border-radius: 15px;
+    }
+
+    .section-heading {
+        gap: 12px;
+        margin-bottom: 23px;
+    }
+
+    .section-number {
+        min-width: 38px;
+        height: 38px;
+        font-size: 11px;
+    }
+
+    .section-heading h2 {
+        font-size: 18px;
+    }
+
+    .section-heading p {
+        font-size: 12px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    .photo-upload {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 17px;
+    }
+
+    .photo-preview {
+        width: 95px;
+        height: 95px;
+        min-width: 95px;
+    }
+
+    .repeat-card {
+        padding: 17px;
+    }
+
+    .save-btn {
+        max-width: 100%;
+    }
+
+}
+
+
+/* =====================================
+   19. REDUCED MOTION
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+
+}

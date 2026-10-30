@@ -1,0 +1,915 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030719">
+
+    <title>Complete Your Profile | CodeFolio AI</title>
+
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="dashboard.html" class="logo">
+            <span class="ai-box">AI</span>
+            <span>CodeFolio</span>
+        </a>
+
+        <a href="dashboard.html" class="back-btn">
+            ← Dashboard
+        </a>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="profile-container">
+
+        <!-- PAGE HEADING -->
+        <section class="page-heading">
+
+            <p class="eyebrow">LET'S BUILD YOUR PORTFOLIO</p>
+
+            <h1>Tell us about <span>yourself.</span></h1>
+
+            <p>
+                Share your details, skills and achievements.
+                We'll use this information to create your professional portfolio.
+            </p>
+
+        </section>
+
+
+        <!-- FORM -->
+        <form id="profileForm">
+
+
+            <!-- SECTION 1: PROFILE PHOTO -->
+            <section class="form-section">
+
+                <div class="section-heading">
+                    <span class="section-number">01</span>
+
+                    <div>
+                        <h2>Profile Picture</h2>
+                        <p>Let people know who you are.</p>
+                    </div>
+                </div>
+
+                <div class="photo-upload">
+
+                    <div class="photo-preview" id="photoPreview">
+                        <span id="photoPlaceholder">👤</span>
+                    </div>
+
+                    <div class="photo-controls">
+
+                        <label for="profilePhoto" class="upload-btn">
+                            Upload Photo
+                        </label>
+
+                        <input
+                            type="file"
+                            id="profilePhoto"
+                            accept="image/*"
+                            hidden
+                        >
+
+                        <p>JPG, PNG or WEBP. Maximum size 5 MB.</p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SECTION 2: PERSONAL INFORMATION -->
+            <section class="form-section">
+
+                <div class="section-heading">
+                    <span class="section-number">02</span>
+
+                    <div>
+                        <h2>Personal Information</h2>
+                        <p>Basic details for your portfolio.</p>
+                    </div>
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="fullName">Full Name *</label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="profileEmail">Email Address *</label>
+
+                        <input
+                            type="email"
+                            id="profileEmail"
+                            placeholder="Your login email"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">Phone Number</label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="Enter your phone number"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="location">Location</label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            placeholder="City, Country"
+                        >
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SECTION 3: SOCIAL LINKS -->
+            <section class="form-section">
+
+                <div class="section-heading">
+                    <span class="section-number">03</span>
+
+                    <div>
+                        <h2>Social & Professional Links</h2>
+                        <p>Connect your professional profiles.</p>
+                    </div>
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="github">GitHub Profile</label>
+
+                        <input
+                            type="url"
+                            id="github"
+                            placeholder="https://github.com/username"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="linkedin">LinkedIn Profile</label>
+
+                        <input
+                            type="url"
+                            id="linkedin"
+                            placeholder="https://linkedin.com/in/username"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full-width">
+
+                        <label for="personalWebsite">
+                            Personal Website (Optional)
+                        </label>
+
+                        <input
+                            type="url"
+                            id="personalWebsite"
+                            placeholder="https://yourwebsite.com"
+                        >
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SECTION 4: ABOUT ME -->
+            <section class="form-section">
+
+                <div class="section-heading">
+                    <span class="section-number">04</span>
+
+                    <div>
+                        <h2>About Me</h2>
+                        <p>Tell visitors about yourself.</p>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="professionalTitle">
+                        Professional Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="professionalTitle"
+                        placeholder="Example: Frontend Developer / Student"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="about">
+                        Introduction / About Me *
+                    </label>
+
+                    <textarea
+                        id="about"
+                        rows="5"
+                        placeholder="Introduce yourself, your interests, goals and what makes you unique..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="careerObjective">
+                        Career Objective (Optional)
+                    </label>
+
+                    <textarea
+                        id="careerObjective"
+                        rows="3"
+                        placeholder="What are your professional goals?"
+                    ></textarea>
+
+                </div>
+
+            </section>
+
+
+            <!-- SECTION 5: CAREER STATUS -->
+            <section class="form-section">
+
+                <div class="section-heading">
+                    <span class="section-number">05</span>
+
+                    <div>
+                        <h2>Career Information</h2>
+                        <p>Tell us where you are in your career.</p>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="careerStatus">
+                        Current Career Status *
+                    </label>
+
+                    <select id="careerStatus" required>
+
+                        <option value="">Select your status</option>
+
+                        <option value="fresher">Fresher / Student</option>
+
+                        <option value="experienced">
+                            Experienced Professional
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div id="experienceSection" class="conditional-section" hidden>
+
+                    <h3>Work Experience</h3>
+
+                    <div id="experienceContainer">
+
+                        <div class="repeat-card experience-item">
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+
+                                    <label>Company Name</label>
+
+                                    <input
+                                        type="text"
+                                        name="companyName[]"
+                                        placeholder="Company name"
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label>Job Role</label>
+
+                                    <input
+                                        type="text"
+                                        name="jobRole[]"
+                                        placeholder="Your designation"
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label>Start Date</label>
+
+                                    <input
+                                        type="month"
+                                        name="jobStart[]"
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label>End Date</label>
+
+                                    <input
+                                        type="month"
+                                        name="jobEnd[]"
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group full-width">
+
+                                    <label>Responsibilities</label>
+
+                                    <textarea
+                                        name="jobDescription[]"
+                                        rows="3"
+                                        placeholder="Describe your work and achievements..."
+                                    ></textarea>
+
+                                </div>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="remove-btn"
+                            >
+                                Remove Experience
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="addExperience"
+                        class="add-btn"
+                    >
+                        + Add Another Experience
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- SECTION 6: EDUCATION -->
+            <section class="form-section">
+
+                <div class="section-heading">
+                    <span class="section-number">06</span>
+
+                    <div>
+                        <h2>Education</h2>
+                        <p>Add your academic background.</p>
+                    </div>
+                </div>
+
+
+                <div id="educationContainer">
+
+                    <div class="repeat-card education-item">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label>Qualification *</label>
+
+                                <select name="qualification[]" required>
+
+                                    <option value="">Select qualification</option>
+
+                                    <option value="School">
+                                        School
+                                    </option>
+
+                                    <option value="Diploma">
+                                        Diploma
+                                    </option>
+
+                                    <option value="UG">
+                                        Undergraduate (UG)
+                                    </option>
+
+                                    <option value="PG">
+                                        Postgraduate (PG)
+                                    </option>
+
+                                    <option value="PhD">
+                                        PhD
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Course / Degree *</label>
+
+                                <input
+                                    type="text"
+                                    name="course[]"
+                                    placeholder="Example: B.Sc Computer Science"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>College / Institution *</label>
+
+                                <input
+                                    type="text"
+                                    name="institution[]"
+                                    placeholder="Institution name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Department / Specialization</label>
+
+                                <input
+                                    type="text"
+                                    name="department[]"
+                                    placeholder="Example: Computer Science"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Start Year</label>
+
+                                <input
+                                    type="number"
+                                    name="educationStart[]"
+                                    placeholder="2023"
+                                    min="1950"
+                                    max="2100"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Graduation Year</label>
+
+                                <input
+                                    type="number"
+                                    name="graduationYear[]"
+                                    placeholder="2027"
+                                    min="1950"
+                                    max="2100"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label>Academic Details (Optional)</label>
+
+                                <textarea
+                                    name="academicDetails[]"
+                                    rows="2"
+                                    placeholder="Achievements, relevant coursework, etc."
+                                ></textarea>
+
+                            </div>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="remove-btn"
+                        >
+                            Remove Education
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="addEducation"
+                    class="add-btn"
+                >
+                    + Add Another Education
+                </button>
+
+            </section>
+
+
+            <!-- SECTION 7: SKILLS -->
+            <section class="form-section">
+
+                <div class="section-heading">
+                    <span class="section-number">07</span>
+
+                    <div>
+                        <h2>My Skills</h2>
+                        <p>Showcase the skills you have learned.</p>
+                    </div>
+                </div>
+
+
+                <div id="skillsContainer">
+
+                    <div class="repeat-card skill-item">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label>Skill Name *</label>
+
+                                <input
+                                    type="text"
+                                    name="skillName[]"
+                                    placeholder="Example: HTML, JavaScript, Python"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Skill Category</label>
+
+                                <select name="skillCategory[]">
+
+                                    <option value="Technical">
+                                        Technical
+                                    </option>
+
+                                    <option value="Programming">
+                                        Programming Language
+                                    </option>
+
+                                    <option value="Tools">
+                                        Tools & Technologies
+                                    </option>
+
+                                    <option value="Soft Skills">
+                                        Soft Skills
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="remove-btn"
+                        >
+                            Remove Skill
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="addSkill"
+                    class="add-btn"
+                >
+                    + Add Another Skill
+                </button>
+
+            </section>
+
+
+            <!-- SECTION 8: PROJECTS -->
+            <section class="form-section">
+
+                <div class="section-heading">
+                    <span class="section-number">08</span>
+
+                    <div>
+                        <h2>My Projects</h2>
+                        <p>Show the projects you have worked on.</p>
+                    </div>
+                </div>
+
+
+                <div id="projectsContainer">
+
+                    <div class="repeat-card project-item">
+
+                        <div class="form-grid">
+
+                            <div class="form-group full-width">
+
+                                <label>Project Name *</label>
+
+                                <input
+                                    type="text"
+                                    name="projectName[]"
+                                    placeholder="Enter project name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label>Project Description *</label>
+
+                                <textarea
+                                    name="projectDescription[]"
+                                    rows="4"
+                                    placeholder="Explain what your project does and what problem it solves..."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Technologies Used</label>
+
+                                <input
+                                    type="text"
+                                    name="projectTechnologies[]"
+                                    placeholder="HTML, CSS, JavaScript"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>GitHub Repository</label>
+
+                                <input
+                                    type="url"
+                                    name="projectGithub[]"
+                                    placeholder="https://github.com/..."
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label>Live Project Link</label>
+
+                                <input
+                                    type="url"
+                                    name="projectLive[]"
+                                    placeholder="https://yourproject.com"
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="remove-btn"
+                        >
+                            Remove Project
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="addProject"
+                    class="add-btn"
+                >
+                    + Add Another Project
+                </button>
+
+            </section>
+
+
+            <!-- SECTION 9: CERTIFICATIONS -->
+            <section class="form-section">
+
+                <div class="section-heading">
+                    <span class="section-number">09</span>
+
+                    <div>
+                        <h2>Certifications & Achievements</h2>
+                        <p>Add certificates, awards and accomplishments.</p>
+                    </div>
+                </div>
+
+
+                <div id="certificatesContainer">
+
+                    <div class="repeat-card certificate-item">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label>Certificate Name *</label>
+
+                                <input
+                                    type="text"
+                                    name="certificateName[]"
+                                    placeholder="Certificate title"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Issuing Organization</label>
+
+                                <input
+                                    type="text"
+                                    name="certificateIssuer[]"
+                                    placeholder="Organization name"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Issue Year</label>
+
+                                <input
+                                    type="number"
+                                    name="certificateYear[]"
+                                    placeholder="2026"
+                                    min="1950"
+                                    max="2100"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Credential Link</label>
+
+                                <input
+                                    type="url"
+                                    name="certificateLink[]"
+                                    placeholder="https://..."
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="remove-btn"
+                        >
+                            Remove Certificate
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="addCertificate"
+                    class="add-btn"
+                >
+                    + Add Another Certificate
+                </button>
+
+            </section>
+
+
+            <!-- FORM ACTIONS -->
+            <section class="form-actions">
+
+                <p>
+                    Review your information before saving.
+                    You can update your profile later.
+                </p>
+
+                <button
+                    type="submit"
+                    id="saveProfile"
+                    class="save-btn"
+                >
+                    Save Profile & Continue →
+                </button>
+
+                <a href="dashboard.html" class="cancel-btn">
+                    Back to Dashboard
+                </a>
+
+                <p id="profileMessage" role="status" aria-live="polite"></p>
+
+            </section>
+
+
+        </form>
+
+    </main>
+
+
+    <!-- PROFILE SCRIPT -->
+    <script type="module" src="profile.js"></script>
+
+</body>
+
+</html>
